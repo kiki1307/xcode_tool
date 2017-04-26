@@ -3,25 +3,24 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>gsq_hide_keyboard</string>
+	<string>gsq_response</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
-		<string>ClassImplementation</string>
+		<string>CodeExpression</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    [super touchesBegan:touches withEvent:event];
-    [self.view endEditing:YES];
-}
-</string>
+	<string>
+    if (self.delegate respondsToSelector:@selector(&lt;#selector#&gt;)) {
+        &lt;#statements#&gt;
+    }</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>A807145A-F6BD-412C-AA06-DC931E43F730</string>
+	<string>E730FCAA-438D-44B8-9DFB-94AE3200E37E</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>hide keyboard when touch background</string>
+	<string>gsq_response</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>hide keyboard</string>
+	<string>gsq_response</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

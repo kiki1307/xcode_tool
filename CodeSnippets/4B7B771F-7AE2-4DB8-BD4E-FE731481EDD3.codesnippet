@@ -3,13 +3,13 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>ppp</string>
+	<string>xxx</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
-		<string>CodeBlock</string>
+		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>/**  **/</string>
+	<string>/** &lt;#label#&gt; **/</string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>4B7B771F-7AE2-4DB8-BD4E-FE731481EDD3</string>
 	<key>IDECodeSnippetLanguage</key>

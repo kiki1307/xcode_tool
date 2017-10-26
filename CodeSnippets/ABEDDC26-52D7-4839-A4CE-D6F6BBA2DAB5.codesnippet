@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>encode</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>//归档
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    NSArray *propertyArray = [self getProperties:[self class]];
+    for (int i = 0; i &lt; propertyArray.count; i++) {
+        id value = [self valueForKey:propertyArray[i]];
+        [aCoder encodeObject:value forKey:propertyArray[i]];
+    }
+}
+//解档
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super init]) {
+        NSArray *propertyArray = [self getProperties:[self class]];
+        for (int i = 0; i &lt; propertyArray.count; i++) {
+            id value = [aDecoder decodeObjectForKey:propertyArray[i]];
+            [self setValue:value forKey:propertyArray[i]];
+        }
+    }
+    
+    return self;
+}
+//获取属性数组
+- (NSArray *)getProperties:(Class)cls{
+    
+    // 获取当前类的所有属性
+    unsigned int count;// 记录属性个数
+    objc_property_t *properties = class_copyPropertyList(cls, &amp;count);
+    // 遍历
+    NSMutableArray *mArray = [NSMutableArray array];
+    for (int i = 0; i &lt; count; i++) {
+        
+        // An opaque type that represents an Objective-C declared property.
+        // objc_property_t 属性类型
+        objc_property_t property = properties[i];
+        // 获取属性的名称 C语言字符串
+        const char *cName = property_getName(property);
+        // 转换为Objective C 字符串
+        NSString *name = [NSString stringWithCString:cName encoding:NSUTF8StringEncoding];
+        [mArray addObject:name];
+    }
+    
+    return mArray.copy;
+}
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>ABEDDC26-52D7-4839-A4CE-D6F6BBA2DAB5</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>encode and decode</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>gsq_encode_decode</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
